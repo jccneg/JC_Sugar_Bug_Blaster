@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ShootScript : MonoBehaviour
 {
+    public CubeExplosion cubeExplosion;
+    public GameObject enemy;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +22,9 @@ public class ShootScript : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                Debug.Log(hit.transform.name);
+                Transform transform1 = hit.transform;
+                cubeExplosion = transform1;
+                cubeExplosion.Main();
             }
         }
     }
