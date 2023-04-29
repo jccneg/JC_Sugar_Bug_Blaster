@@ -58,9 +58,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\ShootScript.cs" />
     <Compile Include="Assets\Scripts\CameraMove.cs" />
-    <Compile Include="Assets\Scripts\Move.cs" />
     <Compile Include="Assets\Scripts\GenerateEnemies.cs" />
-    <Compile Include="Assets\Scripts\CubeExplosion.cs" />
+    <Compile Include="Assets\Scripts\Move.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

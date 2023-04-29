@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1895120670675382435}
   - component: {fileID: 1895120670675382439}
   - component: {fileID: 1895120670675382438}
-  - component: {fileID: 5349912230314058226}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -114,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 1895120670675382438}
   range: 50
-  centrePoint: {fileID: 0}
+  centrePoint: {fileID: 4221404979308168332, guid: 162a6df492bb37e4cb075e2ffa901a7e, type: 3}
 --- !u!195 &1895120670675382438
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -137,19 +136,3 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &5349912230314058226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895120670675382444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5516cff2c710ac349b085bf2f60fa065, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cubesPerAxis: 16
-  delay: 1
-  force: 600
-  radius: 10
