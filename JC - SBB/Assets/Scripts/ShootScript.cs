@@ -5,7 +5,8 @@ using UnityEngine;
 public class ShootScript : MonoBehaviour
 {
     GameObject enemy;
-    GenerateEnemies enemies;
+    public GenerateEnemies enemies;
+    public bool isDestroyed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,11 +23,10 @@ public class ShootScript : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                //if (hit.transform.tag == "Enemy")
+                if (hit.transform.tag == "Enemy")
                 { 
-                    Debug.Log(hit.transform.name);
                     enemy = hit.transform.gameObject;
-                    Destroy(enemy);
+                    enemy.GetComponent<Explode>().isDestroyed = true;
                     enemies.enemyCount -= 1;
                 }
 
