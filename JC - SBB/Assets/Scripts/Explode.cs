@@ -19,15 +19,9 @@ public class Explode : MonoBehaviour
     {
         if (isDestroyed == true)
         {
-            StartCoroutine(TimeToExplode());
+            Instantiate(explode, transform.position, transform.rotation);
+            Destroy(gameObject);
+            isDestroyed = false;
         }
     }
-
-    IEnumerator TimeToExplode()
-    {
-        explode.Play();
-        yield return new WaitForSeconds(0.5f);
-        Destroy(gameObject);
-    }
-
 }
