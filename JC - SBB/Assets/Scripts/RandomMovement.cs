@@ -41,6 +41,6 @@ public class RandomMovement : MonoBehaviour
         timeVar += step;
         speed = Random.Range(minSpeed, maxSpeed);              //      Change this range of numbers to change speed
         GetComponent<Rigidbody>().AddForce(transform.forward * speed);
-        transform.Rotate(randomDirection * Time.deltaTime * 10.0f);
+        transform.Rotate(randomDirection * Time.deltaTime * 1.0f);
     }
 }
