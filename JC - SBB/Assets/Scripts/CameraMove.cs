@@ -22,8 +22,8 @@ public class CameraMove : MonoBehaviour
         rotationY += speedH * Input.GetAxis("Mouse X");
         rotationX -= speedV * Input.GetAxis("Mouse Y");
 
-        rotationY = Mathf.Clamp(rotationY, -50f, 50f);
-        rotationX = Mathf.Clamp(rotationX, -55f, 55f);
+        rotationY = Mathf.Clamp(rotationY, -60f, 60f);
+        rotationX = Mathf.Clamp(rotationX, -65f, 65f);
 
         transform.eulerAngles = new Vector3(rotationX, rotationY, 0.0f);
 

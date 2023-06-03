@@ -49,6 +49,8 @@ public class GameSystem : MonoBehaviour
         WorldAudioPool.Init();
         
         RetrieveTargetsCount();
+
+        StartTimer();
         
 #if UNITY_EDITOR
         //in the editor we find which level we are currently in. Inefficient but since any level can be opened in the
@@ -181,12 +183,16 @@ public class GameSystem : MonoBehaviour
             
             GameSystemInfo.Instance.UpdateTimer(m_Timer);
         }
+        else
+        {
+            FinishRun();
+        }
 
         Transform playerTransform = Controller.Instance.transform;
         
         
         //UI Update
-        MinimapUI.Instance.UpdateForPlayerTransform(playerTransform);
+        //MinimapUI.Instance.UpdateForPlayerTransform(playerTransform);
        
         if(FullscreenMap.Instance.gameObject.activeSelf)
             FullscreenMap.Instance.UpdateForPlayerTransform(playerTransform);

@@ -6,7 +6,6 @@ public class Explode : MonoBehaviour
 {
     public bool isDestroyed = false;
     public ParticleSystem explode;
-    private Transform cubePos;
 
     // Start is called before the first frame update
     void Start()

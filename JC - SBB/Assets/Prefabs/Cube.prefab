@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 5411792059128090371}
   - component: {fileID: 8840073271722391882}
   - component: {fileID: 4137364255030621611}
-  - component: {fileID: 8004070572924940773}
   - component: {fileID: 8194188200237406993}
+  - component: {fileID: 5156315593032391870}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Enemy
@@ -32,6 +32,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.57394576, y: 59.952023, z: -137.34673}
   m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -55,6 +56,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -111,22 +113,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minSpeed: 5
-  maxSpeed: 25
-  collisionTags: []
---- !u!114 &8004070572924940773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1493592315231881055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dad7e453e565da4ba5c6314050cdfff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDestroyed: 0
-  explode: {fileID: 2964645617062722942, guid: 080c5d39d0aaa144cbeb6eb4ea01666c, type: 3}
+  maxSpeed: 15
+  collisionTags:
+  - Wall
 --- !u!54 &8194188200237406993
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -143,3 +132,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5156315593032391870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493592315231881055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dad7e453e565da4ba5c6314050cdfff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDestroyed: 0
+  explode: {fileID: 2964645617062722942, guid: 080c5d39d0aaa144cbeb6eb4ea01666c, type: 3}

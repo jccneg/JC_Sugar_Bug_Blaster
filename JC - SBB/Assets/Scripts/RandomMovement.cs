@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class RandomMovement : MonoBehaviour
 {
-
     //public AudioClip AlienScream;
     public float minSpeed;  // minimum range of speed to move
     public float maxSpeed;  // maximum range of speed to move
     float speed;     // speed is a constantly changing value from the random range of minSpeed and maxSpeed 
 
-    public string[] collisionTags = new string[] {"Wall"};             //  What are the GO tags that will act as colliders that trigger a
-                                               //  direction change? Tags like for walls, room objects, etc.
-                                               //public AudioClip collisionSound;
+    public string[] collisionTags = new string[] { "Wall" };             //  What are the GO tags that will act as colliders that trigger a
+                                                                         //  direction change? Tags like for walls, room objects, etc.
+                                                                         //public AudioClip collisionSound;
 
     float step = Mathf.PI / 60;
     float timeVar = 0;
@@ -25,7 +24,7 @@ public class RandomMovement : MonoBehaviour
     void OnCollisionEnter(Collision col)
     {
 
-        //if (col.gameObject.tag == collisionTags[0])
+        if (col.gameObject.tag == collisionTags[0])
         {                   //  Tag it with a wall or other object
             //GetComponent<AudioSource>().PlayOneShot(collisionSound, 2.0f);         //  Plays a sound on collision
             baseDirection = baseDirection + Random.Range(-30, 30);   // Switch to a new direction on collision
@@ -44,3 +43,5 @@ public class RandomMovement : MonoBehaviour
         transform.Rotate(randomDirection * Time.deltaTime * 1.0f);
     }
 }
+
+
