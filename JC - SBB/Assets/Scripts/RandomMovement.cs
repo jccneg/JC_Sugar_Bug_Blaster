@@ -4,36 +4,84 @@ using UnityEngine;
 
 public class RandomMovement : MonoBehaviour
 {
-    public float minSpeed;
-    public float maxSpeed;
-    float speed;
-
-    public string[] collisionTags = new string[] { "Wall" };
-                                                                           
-    float step = Mathf.PI / 60;
-    float timeVar = 0;
-    float rotationRange = 120;                  
-    float baseDirection = 0;
-
-    Vector3 randomDirection;
-
-    void OnCollisionEnter(Collision col)
+    public Transform Object; // Needs rigidbody attached with a collider
+    Vector3 vel; // Holds the random velocity
+    public float switchDirection = 0.5f;
+    public float curTime = 0f;
+ 
+    void Start()
     {
+        SetVel();
+    }
 
-        if (col.gameObject.tag == collisionTags[0])
+    void SetVel()
+    {
+        if (Random.value > .5)
         {
-            baseDirection = baseDirection + Random.Range(-30, 30);
+            vel.x = 2 * 2 * Random.value;
+        }
+        else
+        {
+            vel.x = -2 * 2 * Random.value;
+        }
+        if (Random.value > .5)
+        {
+            vel.z = 2 * 2 * Random.value;
+        }
+        else
+        {
+            vel.z = -2 * 2 * Random.value;
+        }
+        if (Random.value > .5)
+        {
+            vel.y = 2 * 2 * Random.value;
+        }
+        else
+        {
+            vel.y = -2 * 2 * Random.value;
         }
     }
 
     void Update()
     {
-        randomDirection = new Vector3(0, Mathf.Sin(timeVar) * (rotationRange / 2) + baseDirection, 0); 
-        timeVar += step;
-        speed = Random.Range(minSpeed, maxSpeed);
-        GetComponent<Rigidbody>().AddForce(transform.forward * speed);
-        transform.Rotate(randomDirection * Time.deltaTime * 5.0f);
+        if (curTime < switchDirection)
+        {
+            curTime += 1 * Time.deltaTime;
+        }
+        else
+        {
+            SetVel();
+            if (Random.value > .5)
+            {
+                switchDirection += Random.value;
+            }
+            else
+            {
+                switchDirection -= Random.value;
+            }
+            if (switchDirection < 1)
+            {
+                switchDirection = 1 + Random.value;
+            }
+            curTime = 0;
+        }
+    }
+
+    void FixedUpdate()
+    {
+        Object.GetComponent<Rigidbody>().velocity = vel;
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag == "Wall")
+        {
+            SetVel();
+        }
+        SetVel();
     }
 }
+
+       
 
 

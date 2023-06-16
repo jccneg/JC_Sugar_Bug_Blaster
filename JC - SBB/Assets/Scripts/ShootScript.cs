@@ -6,7 +6,6 @@ public class ShootScript : MonoBehaviour
 {
     GameObject enemy;
     public GenerateEnemies enemies;
-    public bool isDestroyed = false;
 
     // Start is called before the first frame update
     void Start()

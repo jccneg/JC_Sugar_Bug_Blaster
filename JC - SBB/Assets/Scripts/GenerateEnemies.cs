@@ -23,9 +23,9 @@ public class GenerateEnemies : MonoBehaviour
     }
     void SpawnEnemies()
     {
-        xPos = Random.Range(4, -4);
-        yPos = Random.Range(4, -4);
-        zPos = Random.Range(4, -4);
+        xPos = Random.Range(10, -10);
+        yPos = Random.Range(15, -15);
+        zPos = Random.Range(15, -5);
         Instantiate(theEnemies[Random.Range(0, theEnemies.Length)], new Vector3(xPos, yPos, zPos), Quaternion.identity);
         enemyCount += 1;
     }
