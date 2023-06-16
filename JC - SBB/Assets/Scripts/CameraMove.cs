@@ -13,7 +13,7 @@ public class CameraMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -27,7 +27,9 @@ public class CameraMove : MonoBehaviour
 
         transform.eulerAngles = new Vector3(rotationX, rotationY, 0.0f);
 
-    
-
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 }

@@ -4,43 +4,35 @@ using UnityEngine;
 
 public class RandomMovement : MonoBehaviour
 {
-    //public AudioClip AlienScream;
-    public float minSpeed;  // minimum range of speed to move
-    public float maxSpeed;  // maximum range of speed to move
-    float speed;     // speed is a constantly changing value from the random range of minSpeed and maxSpeed 
+    public float minSpeed;
+    public float maxSpeed;
+    float speed;
 
-    public string[] collisionTags = new string[] { "Wall" };             //  What are the GO tags that will act as colliders that trigger a
-                                                                         //  direction change? Tags like for walls, room objects, etc.
-                                                                         //public AudioClip collisionSound;
-
+    public string[] collisionTags = new string[] { "Wall" };
+                                                                           
     float step = Mathf.PI / 60;
     float timeVar = 0;
-    float rotationRange = 120;                  //  How far should the object rotate to find a new direction?
+    float rotationRange = 120;                  
     float baseDirection = 0;
 
-    Vector3 randomDirection;                // Random, constantly changing direction from a narrow range for natural motion
-
+    Vector3 randomDirection;
 
     void OnCollisionEnter(Collision col)
     {
 
         if (col.gameObject.tag == collisionTags[0])
-        {                   //  Tag it with a wall or other object
-            //GetComponent<AudioSource>().PlayOneShot(collisionSound, 2.0f);         //  Plays a sound on collision
-            baseDirection = baseDirection + Random.Range(-30, 30);   // Switch to a new direction on collision
-
-            // use the above code as a template for all the collisionTags
-            // add here.. and on.. and on..
+        {
+            baseDirection = baseDirection + Random.Range(-30, 30);
         }
     }
 
     void Update()
     {
-        randomDirection = new Vector3(0, Mathf.Sin(timeVar) * (rotationRange / 2) + baseDirection, 0); //   Moving at random angles 
+        randomDirection = new Vector3(0, Mathf.Sin(timeVar) * (rotationRange / 2) + baseDirection, 0); 
         timeVar += step;
-        speed = Random.Range(minSpeed, maxSpeed);              //      Change this range of numbers to change speed
+        speed = Random.Range(minSpeed, maxSpeed);
         GetComponent<Rigidbody>().AddForce(transform.forward * speed);
-        transform.Rotate(randomDirection * Time.deltaTime * 1.0f);
+        transform.Rotate(randomDirection * Time.deltaTime * 5.0f);
     }
 }
 

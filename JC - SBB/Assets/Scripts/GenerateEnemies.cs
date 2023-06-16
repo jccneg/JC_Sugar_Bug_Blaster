@@ -13,7 +13,7 @@ public class GenerateEnemies : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(EnemyDrop());
+        StartCoroutine(EnemyCountCheck());
     }
 
     // Update is called once per frame
@@ -21,17 +21,22 @@ public class GenerateEnemies : MonoBehaviour
     {
         
     }
-
-    IEnumerator EnemyDrop()
+    void SpawnEnemies()
     {
-        while (true)
+        xPos = Random.Range(4, -4);
+        yPos = Random.Range(4, -4);
+        zPos = Random.Range(4, -4);
+        Instantiate(theEnemies[Random.Range(0, theEnemies.Length)], new Vector3(xPos, yPos, zPos), Quaternion.identity);
+        enemyCount += 1;
+    }
+
+    IEnumerator EnemyCountCheck()
+    {
+        if(enemyCount <= 9)
         {
-            xPos = Random.Range(4, -4);
-            yPos = Random.Range(4, -4);
-            zPos = Random.Range(4, -4);
-            Instantiate(theEnemies[Random.Range(0, theEnemies.Length)], new Vector3(xPos, yPos, zPos), Quaternion.identity);
-            yield return new WaitForSeconds(2.0f);
-            enemyCount += 1;
+            SpawnEnemies();
         }
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(EnemyCountCheck());
     }
 }
