@@ -89,7 +89,7 @@
     <Compile Include="Assets\Creator Kit - FPS\Scripts\GradientTexture.cs" />
     <Compile Include="Assets\Creator Kit - FPS\Scripts\UI\PauseMenu.cs" />
     <Compile Include="Assets\Creator Kit - FPS\Scripts\Minimap\MinimapSystem.cs" />
-    <Compile Include="Assets\Scripts\GenerateEnemies.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Creator Kit - FPS\Scripts\Effects\CameraShaker.cs" />
     <Compile Include="Assets\Creator Kit - FPS\Scripts\System\Projectile.cs" />
     <Compile Include="Assets\Creator Kit - FPS\Scripts\KeyLockSystem\Lock.cs" />
@@ -104,6 +104,7 @@
     <Compile Include="Assets\Creator Kit - FPS\Scripts\UI\LevelSelectionUI.cs" />
     <Compile Include="Assets\Creator Kit - FPS\Scripts\System\GameSystem.cs" />
     <Compile Include="Assets\Creator Kit - FPS\Scripts\LevelLayout\LevelLayout.cs" />
+    <Compile Include="Assets\Scripts\StartGame.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Creator Kit - FPS\Art\Shaders\Acid.shader" />

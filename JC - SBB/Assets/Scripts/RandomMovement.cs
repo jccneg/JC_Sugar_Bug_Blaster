@@ -5,13 +5,16 @@ using UnityEngine;
 public class RandomMovement : MonoBehaviour
 {
     public Transform Object; // Needs rigidbody attached with a collider
+    public Rigidbody rb;
     Vector3 vel; // Holds the random velocity
     public float switchDirection = 0.5f;
     public float curTime = 0f;
- 
+    float force = 10;
+
     void Start()
     {
         SetVel();
+        rb = GetComponent<Rigidbody>();
     }
 
     void SetVel()
@@ -69,16 +72,14 @@ public class RandomMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Object.GetComponent<Rigidbody>().velocity = vel;
+        rb.velocity = vel;
     }
 
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.tag == "Wall")
-        {
-            SetVel();
-        }
-        SetVel();
+        Vector3 reverseDirection = col.contacts[0].normal - transform.position;
+        reverseDirection = -reverseDirection.normalized;
+        GetComponent<Rigidbody>().AddForce(reverseDirection * force);
     }
 }
 

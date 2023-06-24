@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShootScript : MonoBehaviour
 {
     GameObject enemy;
-    public GenerateEnemies enemies;
+    public GameManager enemies;
 
     // Start is called before the first frame update
     void Start()
