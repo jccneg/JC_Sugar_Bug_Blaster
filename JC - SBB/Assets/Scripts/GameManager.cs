@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,12 @@ public class GameManager : MonoBehaviour
     public int yPos;
     public int zPos;
     public int enemyCount;
+
+    public Text timer;
+    public Text startCountdown;
+
+    public float totalTimer;
+    public float totalStartCountdown;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +26,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        totalTimer -= Time.deltaTime;
+        totalStartCountdown -= Time.deltaTime;
+
+        timer.text = Mathf.Round(totalTimer).ToString();
+        startCountdown.text = Mathf.Round(totalStartCountdown).ToString();
     }
     void SpawnEnemies()
     {

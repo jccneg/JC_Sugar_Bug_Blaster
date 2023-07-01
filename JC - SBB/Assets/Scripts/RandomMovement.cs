@@ -7,9 +7,12 @@ public class RandomMovement : MonoBehaviour
     public Transform Object; // Needs rigidbody attached with a collider
     public Rigidbody rb;
     Vector3 vel; // Holds the random velocity
-    public float switchDirection = 0.5f;
+    public float switchDirection = 0.1f;
     public float curTime = 0f;
-    float force = 10;
+    float force = 10f;
+
+    [SerializeField]
+    private Transform target;
 
     void Start()
     {
@@ -68,6 +71,7 @@ public class RandomMovement : MonoBehaviour
             }
             curTime = 0;
         }
+        transform.LookAt(target);
     }
 
     void FixedUpdate()
@@ -77,9 +81,10 @@ public class RandomMovement : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
+        Debug.Log("COLLIDE");
         Vector3 reverseDirection = col.contacts[0].normal - transform.position;
         reverseDirection = -reverseDirection.normalized;
-        GetComponent<Rigidbody>().AddForce(reverseDirection * force);
+        GetComponent<Rigidbody>().AddForce(reverseDirection * force, ForceMode.VelocityChange);
     }
 }
 
