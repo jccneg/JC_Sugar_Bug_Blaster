@@ -23,7 +23,8 @@ public class ShootScript : MonoBehaviour
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
                 if (hit.transform.tag == "Enemy")
-                { 
+                {
+                    Debug.Log("HHHHH");
                     enemy = hit.transform.gameObject;
                     enemy.GetComponent<Explode>().isDestroyed = true;
                     enemies.enemyCount -= 1;

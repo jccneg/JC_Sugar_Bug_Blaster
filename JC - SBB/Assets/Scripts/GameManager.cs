@@ -26,11 +26,20 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        totalTimer -= Time.deltaTime;
-        totalStartCountdown -= Time.deltaTime;
 
-        timer.text = Mathf.Round(totalTimer).ToString();
-        startCountdown.text = Mathf.Round(totalStartCountdown).ToString();
+        if (totalStartCountdown > 0)
+        {
+            totalStartCountdown -= Time.deltaTime;
+            startCountdown.text = Mathf.Round(totalStartCountdown).ToString();
+        }
+
+        if (totalStartCountdown <= 0)
+        {
+            startCountdown.text = "";
+            totalTimer -= Time.deltaTime;
+            timer.text = Mathf.Round(totalTimer).ToString();
+        }
+
     }
     void SpawnEnemies()
     {
@@ -43,12 +52,11 @@ public class GameManager : MonoBehaviour
 
     IEnumerator EnemyCountCheck()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(4f);
         if(enemyCount <= 9)
         {
             SpawnEnemies();
         }
-        yield return new WaitForSeconds(1f);
         StartCoroutine(EnemyCountCheck());
     }
 }
