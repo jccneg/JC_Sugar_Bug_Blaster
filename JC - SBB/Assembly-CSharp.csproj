@@ -101,11 +101,11 @@
     <Compile Include="Assets\Creator Kit - FPS\Scripts\TriggerActionsSystem\DissolveAction.cs" />
     <Compile Include="Assets\Creator Kit - FPS\Scripts\UI\FullscreenMap.cs" />
     <Compile Include="Assets\Creator Kit - FPS\Scripts\GameDatabase.cs" />
+    <Compile Include="Assets\Scripts\Render.cs" />
     <Compile Include="Assets\Creator Kit - FPS\Scripts\System\Controller.cs" />
     <Compile Include="Assets\Creator Kit - FPS\Scripts\UI\LevelSelectionUI.cs" />
     <Compile Include="Assets\Creator Kit - FPS\Scripts\System\GameSystem.cs" />
     <Compile Include="Assets\Creator Kit - FPS\Scripts\LevelLayout\LevelLayout.cs" />
-    <Compile Include="Assets\Scripts\Render.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Creator Kit - FPS\Art\Shaders\Acid.shader" />

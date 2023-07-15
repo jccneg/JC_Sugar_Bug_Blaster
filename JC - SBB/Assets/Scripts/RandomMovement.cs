@@ -14,10 +14,18 @@ public class RandomMovement : MonoBehaviour
     [SerializeField]
     private Transform target;
 
+    [Header("Audio")]
+    public AudioSource IdleSource;
+
     void Start()
     {
         SetVel();
         rb = GetComponent<Rigidbody>();
+
+        if (IdleSource != null)
+        {
+            IdleSource.time = Random.Range(0.0f, IdleSource.clip.length);
+        }
     }
 
     void SetVel()

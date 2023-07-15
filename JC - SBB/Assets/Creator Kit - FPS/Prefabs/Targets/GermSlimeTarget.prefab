@@ -291,8 +291,8 @@ GameObject:
   - component: {fileID: 7162997211635013435}
   - component: {fileID: 1407279479756981044}
   - component: {fileID: 5949802199157995707}
-  - component: {fileID: 7818527331259110205}
   - component: {fileID: 1545942917628760713}
+  - component: {fileID: 8009390056896952500}
   m_Layer: 10
   m_Name: GermSlimeTarget
   m_TagString: Enemy
@@ -348,24 +348,6 @@ CapsuleCollider:
   m_Height: 2.900535
   m_Direction: 1
   m_Center: {x: -0.061621748, y: 0.09, z: -0.10449211}
---- !u!114 &7818527331259110205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8070109232193553997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21572170bf3eef94dba3f7ca0f06525a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
-  pointValue: 5
-  DestroyedEffect: {fileID: 198321120434662062, guid: 5656e7ea1f1a75d4c895547ec2b824b3,
-    type: 3}
-  HitPlayer: {fileID: 8212324151211496083}
-  IdleSource: {fileID: 2512953057398773005}
 --- !u!114 &1545942917628760713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,6 +365,22 @@ MonoBehaviour:
   switchDirection: 0.1
   curTime: 0
   target: {fileID: 5174633612780961728, guid: 5bc08f013cadc2f4dbfee7f4cae4045a, type: 3}
+  IdleSource: {fileID: 2512953057398773005}
+--- !u!114 &8009390056896952500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8070109232193553997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dad7e453e565da4ba5c6314050cdfff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDestroyed: 0
+  explode: {fileID: 198321120434662062, guid: 5656e7ea1f1a75d4c895547ec2b824b3, type: 3}
+  HitPlayer: {fileID: 8212324151211496083}
 --- !u!1001 &2834995659269953124
 PrefabInstance:
   m_ObjectHideFlags: 0

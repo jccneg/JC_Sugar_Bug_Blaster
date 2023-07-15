@@ -139,9 +139,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6961856894248427335}
   - component: {fileID: 6754320747944606146}
-  - component: {fileID: 613060378875714941}
   - component: {fileID: 6689394087353256158}
   - component: {fileID: 7141800574942927919}
+  - component: {fileID: 5244142885482978120}
   m_Layer: 10
   m_Name: BloodCellTarget
   m_TagString: Enemy
@@ -158,7 +158,7 @@ Transform:
   m_GameObject: {fileID: 2742523207603312984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8605128913963383879}
@@ -183,24 +183,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &613060378875714941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2742523207603312984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21572170bf3eef94dba3f7ca0f06525a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
-  pointValue: -5
-  DestroyedEffect: {fileID: 198321120434662062, guid: 5656e7ea1f1a75d4c895547ec2b824b3,
-    type: 3}
-  HitPlayer: {fileID: 5180989449417381527}
-  IdleSource: {fileID: 1794190175530118467}
 --- !u!136 &6689394087353256158
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -232,6 +214,22 @@ MonoBehaviour:
   switchDirection: 0.1
   curTime: 0
   target: {fileID: 5174633612780961728, guid: 5bc08f013cadc2f4dbfee7f4cae4045a, type: 3}
+  IdleSource: {fileID: 1794190175530118467}
+--- !u!114 &5244142885482978120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2742523207603312984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dad7e453e565da4ba5c6314050cdfff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDestroyed: 0
+  explode: {fileID: 198321120434662062, guid: 5656e7ea1f1a75d4c895547ec2b824b3, type: 3}
+  HitPlayer: {fileID: 5180989449417381527}
 --- !u!1 &6681335294391022138
 GameObject:
   m_ObjectHideFlags: 0

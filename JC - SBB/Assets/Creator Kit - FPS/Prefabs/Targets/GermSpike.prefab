@@ -291,8 +291,8 @@ GameObject:
   - component: {fileID: 2661756142257781570}
   - component: {fileID: 2798817014691871756}
   - component: {fileID: 2000244465944071592}
-  - component: {fileID: -4977994856527330495}
   - component: {fileID: 6332391572782662780}
+  - component: {fileID: 706758832876552655}
   m_Layer: 0
   m_Name: GermSpike
   m_TagString: Enemy
@@ -347,24 +347,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.3
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &-4977994856527330495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2661756142257781597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21572170bf3eef94dba3f7ca0f06525a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 6
-  pointValue: 10
-  DestroyedEffect: {fileID: 198321120434662062, guid: 5656e7ea1f1a75d4c895547ec2b824b3,
-    type: 3}
-  HitPlayer: {fileID: 1293402502}
-  IdleSource: {fileID: 815908053}
 --- !u!114 &6332391572782662780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,6 +364,22 @@ MonoBehaviour:
   switchDirection: 0.1
   curTime: 0
   target: {fileID: 5174633612780961728, guid: 5bc08f013cadc2f4dbfee7f4cae4045a, type: 3}
+  IdleSource: {fileID: 815908053}
+--- !u!114 &706758832876552655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2661756142257781597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dad7e453e565da4ba5c6314050cdfff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDestroyed: 0
+  explode: {fileID: 198321120434662062, guid: 5656e7ea1f1a75d4c895547ec2b824b3, type: 3}
+  HitPlayer: {fileID: 1293402502}
 --- !u!1001 &2661756140827123195
 PrefabInstance:
   m_ObjectHideFlags: 0

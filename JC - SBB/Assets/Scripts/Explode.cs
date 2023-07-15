@@ -6,6 +6,7 @@ public class Explode : MonoBehaviour
 {
     public bool isDestroyed = false;
     public ParticleSystem explode;
+    public RandomPlayer HitPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class Explode : MonoBehaviour
         if (isDestroyed == true)
         {
             Instantiate(explode, transform.position, transform.rotation);
+            HitPlayer.PlayRandom();
             Destroy(gameObject);
             isDestroyed = false;
         }
