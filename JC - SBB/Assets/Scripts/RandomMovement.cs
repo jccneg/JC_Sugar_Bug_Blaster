@@ -89,7 +89,6 @@ public class RandomMovement : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        Debug.Log("COLLIDE");
         Vector3 reverseDirection = col.contacts[0].normal - transform.position;
         reverseDirection = -reverseDirection.normalized;
         GetComponent<Rigidbody>().AddForce(reverseDirection * force, ForceMode.VelocityChange);

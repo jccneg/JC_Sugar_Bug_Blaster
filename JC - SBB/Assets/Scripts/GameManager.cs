@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public int yPos;
     public int zPos;
     public int enemyCount;
-    public Explode DeathSFX;
 
     [Header("Timers")]
     public Text timer;
@@ -61,8 +60,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator EnemyCountCheck()
     {
-        yield return new WaitForSeconds(2f);
-        if(enemyCount <= 9)
+        yield return new WaitForSeconds(.5f);
+        if(enemyCount <= 18)
         {
             SpawnEnemies();
         }

@@ -380,6 +380,8 @@ MonoBehaviour:
   isDestroyed: 0
   explode: {fileID: 198321120434662062, guid: 5656e7ea1f1a75d4c895547ec2b824b3, type: 3}
   HitPlayer: {fileID: 1293402502}
+  pointsWorth: 5
+  gameManager: {fileID: 0}
 --- !u!1001 &2661756140827123195
 PrefabInstance:
   m_ObjectHideFlags: 0
