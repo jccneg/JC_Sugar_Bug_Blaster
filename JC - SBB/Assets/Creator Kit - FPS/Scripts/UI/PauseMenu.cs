@@ -22,16 +22,6 @@ public class PauseMenu : MonoBehaviour
         Controller.Instance.DisplayCursor(true);
     }
 
-    public void OpenEpisode()
-    {
-        if(LevelSelectionUI.Instance.IsEmpty())
-            return;
-        
-        UIAudioPlayer.PlayPositive();
-        gameObject.SetActive(false);
-        LevelSelectionUI.Instance.DisplayEpisode();
-    }
-
     public void ReturnToGame()
     {
         UIAudioPlayer.PlayPositive();

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public int yPos;
     public int zPos;
     public int enemyCount;
+    public GameObject Pause;
 
     [Header("Timers")]
     public Text timer;
@@ -42,6 +43,10 @@ public class GameManager : MonoBehaviour
             timer.text = Mathf.Round(totalTimer).ToString();
         }
 
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Pause.GetComponent<PauseMenu>().Display();
+        }
     }
     void SpawnEnemies()
     {
