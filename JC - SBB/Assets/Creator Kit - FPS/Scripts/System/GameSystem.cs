@@ -23,6 +23,7 @@ public class GameSystem : MonoBehaviour
     public float RunTime => m_Timer;
     public int TargetCount => m_TargetCount;
     public int DestroyedTarget => m_TargetDestroyed;
+    public int DestroyedNonTarget => m_NonTargetDestroyed;
     public int Score => m_Score;
 
     float m_Timer;
@@ -30,6 +31,7 @@ public class GameSystem : MonoBehaviour
     
     int m_TargetCount;
     int m_TargetDestroyed;
+    int m_NonTargetDestroyed;
 
     int m_Score = 0;
 
@@ -106,37 +108,7 @@ public class GameSystem : MonoBehaviour
         FinalScoreUI.Instance.Display();
     }
 
-    public void NextLevel()
-    {
-#if UNITY_EDITOR
-        //in editor if we didn't found the current episode or level, mean we are playing a test scene not part of the
-        //game database list, so calling next level is the same as restarting level
-        if (s_CurrentEpisode < 0 || s_CurrentLevel < 0)
-        {
-            var asyncOp = EditorSceneManager.LoadSceneAsyncInPlayMode(EditorSceneManager.GetActiveScene().path, new LoadSceneParameters(LoadSceneMode.Single));
-            return;
-        }
-#endif
-        
-        
-        s_CurrentLevel += 1;
-
-        if (GameDatabase.Instance.episodes[s_CurrentEpisode].scenes.Length <= s_CurrentLevel)
-        {
-            s_CurrentLevel = 0;
-            s_CurrentEpisode += 1;
-        }
-
-        if (s_CurrentEpisode >= GameDatabase.Instance.episodes.Length)
-            s_CurrentEpisode = 0;
-
-#if UNITY_EDITOR
-        var op = EditorSceneManager.LoadSceneAsyncInPlayMode(GameDatabase.Instance.episodes[s_CurrentEpisode].scenes[s_CurrentLevel], new LoadSceneParameters(LoadSceneMode.Single));
-#else
-        SceneManager.LoadScene(GameDatabase.Instance.episodes[s_CurrentEpisode].scenes[s_CurrentLevel]);
-#endif
-    }
-
+    
     void RetrieveTargetsCount()
     {
         var targets = Resources.FindObjectsOfTypeAll<Target>();
@@ -170,7 +142,6 @@ public class GameSystem : MonoBehaviour
         m_Score = 0;
 
         GameSystemInfo.Instance.UpdateScore(0);
-        LevelSelectionUI.Instance.Init();
     }
 
     void Update()
@@ -180,25 +151,7 @@ public class GameSystem : MonoBehaviour
             m_Timer += Time.deltaTime;
             
             GameSystemInfo.Instance.UpdateTimer(m_Timer);
-        }
-
-        Transform playerTransform = Controller.Instance.transform;
-        
-        
-        //UI Update
-        MinimapUI.Instance.UpdateForPlayerTransform(playerTransform);
-       
-        if(FullscreenMap.Instance.gameObject.activeSelf)
-            FullscreenMap.Instance.UpdateForPlayerTransform(playerTransform);
-    }
-
-    public float GetFinalTime()
-    {
-        int missedTarget = m_TargetCount - m_TargetDestroyed;
-
-        float penalty = missedTarget * TargetMissedPenalty;
-
-        return m_Timer + penalty;
+        }        
     }
 
     
@@ -206,6 +159,14 @@ public class GameSystem : MonoBehaviour
     {
         m_TargetDestroyed += 1;
         m_Score += score;
+
+        GameSystemInfo.Instance.UpdateScore(m_Score);
+    }
+
+    public void NonTargetDestroyed(int score)
+    {
+        m_NonTargetDestroyed += 1;
+        m_Score -= score;
 
         GameSystemInfo.Instance.UpdateScore(m_Score);
     }

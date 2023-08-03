@@ -4,16 +4,27 @@ using UnityEngine;
 
 public class CameraMove : MonoBehaviour
 {
+    public static CameraMove Instance { get; private set; }
+
     public float speedH = 2.0f;
     public float speedV = 2.0f;
 
     private float rotationX = 0.0f;
     private float rotationY = 0.0f;
 
+    private bool _isPositionFixed = false;
+    private Vector3 _fixedPosition;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -31,5 +42,16 @@ public class CameraMove : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
         }
+        
+        if (_isPositionFixed)
+        {
+            transform.position = _fixedPosition;
+        }
     }
+
+    public void SetPositionFixed(bool fix)
+    {
+        _isPositionFixed = true;
+        _fixedPosition = transform.position;
+    } 
 }

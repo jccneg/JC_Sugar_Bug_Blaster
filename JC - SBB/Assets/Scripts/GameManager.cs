@@ -13,17 +13,31 @@ public class GameManager : MonoBehaviour
     public int enemyCount;
     public GameObject Pause;
 
+    public bool CanPause { get; set; } = true;
+
+    bool m_IsPaused = false;
+
+    float m_Timer;
+    bool m_TimerRunning = false;
+
     [Header("Timers")]
     public Text timer;
     public Text startCountdown;
     public float totalTimer;
     public float totalStartCountdown;
 
+
+    public static GameManager Instance { get; protected set; }
+
+    void Awake()
+    {
+        Instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(After(EnemyCountCheck(), 3f));
-
+        m_IsPaused = false;
     }
 
     // Update is called once per frame
@@ -46,6 +60,18 @@ public class GameManager : MonoBehaviour
         if (Input.GetKey(KeyCode.Escape))
         {
             Pause.GetComponent<PauseMenu>().Display();
+        }
+
+        if (CanPause && Input.GetButtonDown("Menu"))
+        {
+            PauseMenu.Instance.Display();
+        }
+
+        if (m_TimerRunning)
+        {
+            m_Timer += Time.deltaTime;
+
+            GameSystemInfo.Instance.UpdateTimer(m_Timer);
         }
     }
     void SpawnEnemies()
@@ -71,5 +97,12 @@ public class GameManager : MonoBehaviour
             SpawnEnemies();
         }
         StartCoroutine(EnemyCountCheck());
+    }
+
+    public void DisplayCursor(bool display)
+    {
+        m_IsPaused = display;
+        Cursor.lockState = display ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.visible = display;
     }
 }

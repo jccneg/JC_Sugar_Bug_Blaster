@@ -19,7 +19,9 @@ public class PauseMenu : MonoBehaviour
     {
         gameObject.SetActive(true);
         GameSystem.Instance.StopTimer();
-        Controller.Instance.DisplayCursor(true);
+        GameManager.Instance.DisplayCursor(true);
+        Time.timeScale = 0;
+        CameraMove.Instance.SetPositionFixed(true);
     }
 
     public void ReturnToGame()
@@ -27,7 +29,8 @@ public class PauseMenu : MonoBehaviour
         UIAudioPlayer.PlayPositive();
         GameSystem.Instance.StartTimer();
         gameObject.SetActive(false);
-        Controller.Instance.DisplayCursor(false);
+        GameManager.Instance.DisplayCursor(false);
+        Time.timeScale = 1;
     }
 
     public void ExitGame()
