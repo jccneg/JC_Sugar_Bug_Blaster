@@ -14,7 +14,7 @@ public class ShootScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetMouseButtonUp(0))
         {

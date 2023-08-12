@@ -57,6 +57,12 @@ public class GameManager : MonoBehaviour
             timer.text = Mathf.Round(totalTimer).ToString();
         }
 
+        if (totalTimer <= 0)
+        {
+            Time.timeScale = 0;
+            FinalScoreUI.Instance.Display();
+        }
+
         if (Input.GetKey(KeyCode.Escape))
         {
             Pause.GetComponent<PauseMenu>().Display();
@@ -91,7 +97,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator EnemyCountCheck()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1f);
         if(enemyCount <= 18)
         {
             SpawnEnemies();

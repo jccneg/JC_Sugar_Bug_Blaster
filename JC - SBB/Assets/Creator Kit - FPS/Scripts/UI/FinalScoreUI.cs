@@ -20,7 +20,7 @@ public class FinalScoreUI : MonoBehaviour
     public void Display()
     {
         gameObject.SetActive(true);
-        
+        GameManager.Instance.DisplayCursor(true);
         int targetDestroyed = GameSystem.Instance.DestroyedTarget;
         int totalTarget = GameSystem.Instance.TargetCount;
 

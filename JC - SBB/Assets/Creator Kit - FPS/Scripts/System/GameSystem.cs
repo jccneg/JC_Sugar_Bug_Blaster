@@ -79,7 +79,6 @@ public class GameSystem : MonoBehaviour
         }
 #endif
         
-        GameSystemInfo.Instance.UpdateTimer(0);
     }
 
     public void ResetTimer()
