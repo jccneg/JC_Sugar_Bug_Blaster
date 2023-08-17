@@ -26,8 +26,15 @@ public class GameManager : MonoBehaviour
     public float totalTimer;
     public float totalStartCountdown;
 
-
     public static GameManager Instance { get; protected set; }
+
+    public int TargetCount => m_TargetCount;
+    public int DestroyedTarget => m_TargetDestroyed;
+    public int DestroyedNonTarget => m_NonTargetDestroyed;
+
+    int m_TargetCount;
+    int m_TargetDestroyed;
+    int m_NonTargetDestroyed;
 
     void Awake()
     {
@@ -60,7 +67,7 @@ public class GameManager : MonoBehaviour
         if (totalTimer <= 0)
         {
             Time.timeScale = 0;
-            FinalScoreUI.Instance.Display();
+            GameSystem.Instance.FinishRun();
         }
 
         if (Input.GetKey(KeyCode.Escape))
@@ -73,12 +80,13 @@ public class GameManager : MonoBehaviour
             PauseMenu.Instance.Display();
         }
 
-        if (m_TimerRunning)
+        //if (m_TimerRunning)
         {
-            m_Timer += Time.deltaTime;
+            //m_Timer += Time.deltaTime;
 
-            GameSystemInfo.Instance.UpdateTimer(m_Timer);
+            //GameSystemInfo.Instance.UpdateTimer(m_Timer);
         }
+        RetrieveTargetsCount();
     }
     void SpawnEnemies()
     {
@@ -110,5 +118,25 @@ public class GameManager : MonoBehaviour
         m_IsPaused = display;
         Cursor.lockState = display ? CursorLockMode.None : CursorLockMode.Locked;
         Cursor.visible = display;
+    }
+
+    void RetrieveTargetsCount()
+    {
+        var targets = GameObject.FindGameObjectsWithTag("Enemy");
+
+        int count = 0;
+
+        m_TargetCount = count;
+        m_TargetDestroyed = 0;
+        m_NonTargetDestroyed = 0;
+    }
+
+    public void TargetDestroyed(int score)
+    {
+        m_TargetDestroyed += 1;;
+    }
+    public void NonTargetDestroyed(int score)
+    {
+        m_NonTargetDestroyed += 1;
     }
 }

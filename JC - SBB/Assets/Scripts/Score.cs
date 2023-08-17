@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
+    public static Score Instance { get; private set; }
+
     [Header("Default Score")]
     public int score = 0;
     [Header("Text Object for Displaying Score")]

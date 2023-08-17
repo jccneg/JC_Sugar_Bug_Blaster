@@ -102,15 +102,14 @@ public class GameSystem : MonoBehaviour
         BGMPlayer.loop = false;
         BGMPlayer.Play();
         
-        Controller.Instance.DisplayCursor(true);
-        Controller.Instance.CanPause = false;
+        GameManager.Instance.CanPause = false;
         FinalScoreUI.Instance.Display();
     }
 
     
     void RetrieveTargetsCount()
     {
-        var targets = Resources.FindObjectsOfTypeAll<Target>();
+        var targets = GameObject.FindGameObjectsWithTag("Enemy");
 
         int count = 0;
         
@@ -131,8 +130,6 @@ public class GameSystem : MonoBehaviour
 #endif
             
             //we only count target with positive point, as negative point you have to avoid destroying them
-            if (t.pointValue > 0)
-                count += 1;
         }
 
 

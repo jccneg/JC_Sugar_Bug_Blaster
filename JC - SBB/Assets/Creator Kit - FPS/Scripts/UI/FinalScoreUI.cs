@@ -21,11 +21,12 @@ public class FinalScoreUI : MonoBehaviour
     {
         gameObject.SetActive(true);
         GameManager.Instance.DisplayCursor(true);
-        int targetDestroyed = GameSystem.Instance.DestroyedTarget;
-        int totalTarget = GameSystem.Instance.TargetCount;
+        int targetDestroyed = GameManager.Instance.DestroyedTarget;
+        int totalTarget = GameManager.Instance.TargetCount;
 
         TargetDestroyed.text = targetDestroyed + "/" + totalTarget;
 
-        FinalScore.text = GameSystem.Instance.Score.ToString("N");
+        FinalScore.text = Score.Instance.score.ToString();
+
     }
 }
