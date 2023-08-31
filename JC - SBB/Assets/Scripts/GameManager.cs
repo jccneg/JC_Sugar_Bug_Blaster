@@ -13,12 +13,17 @@ public class GameManager : MonoBehaviour
     public int enemyCount;
     public GameObject Pause;
 
+    [Header("Default Score")]
+    public int score = 0;
+    [Header("Text Object for Displaying Score")]
+    public Text scoreText;
+
     public bool CanPause { get; set; } = true;
 
     bool m_IsPaused = false;
 
-    float m_Timer;
-    bool m_TimerRunning = false;
+    //float m_Timer;
+    //bool m_TimerRunning = false;
 
     [Header("Timers")]
     public Text timer;
@@ -27,14 +32,6 @@ public class GameManager : MonoBehaviour
     public float totalStartCountdown;
 
     public static GameManager Instance { get; protected set; }
-
-    public int TargetCount => m_TargetCount;
-    public int DestroyedTarget => m_TargetDestroyed;
-    public int DestroyedNonTarget => m_NonTargetDestroyed;
-
-    int m_TargetCount;
-    int m_TargetDestroyed;
-    int m_NonTargetDestroyed;
 
     void Awake()
     {
@@ -45,6 +42,7 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(After(EnemyCountCheck(), 3f));
         m_IsPaused = false;
+        scoreText.text = score.ToString();
     }
 
     // Update is called once per frame
@@ -86,7 +84,6 @@ public class GameManager : MonoBehaviour
 
             //GameSystemInfo.Instance.UpdateTimer(m_Timer);
         }
-        RetrieveTargetsCount();
     }
     void SpawnEnemies()
     {
@@ -120,23 +117,23 @@ public class GameManager : MonoBehaviour
         Cursor.visible = display;
     }
 
-    void RetrieveTargetsCount()
+    public void AddScore(int points)
     {
-        var targets = GameObject.FindGameObjectsWithTag("Enemy");
-
-        int count = 0;
-
-        m_TargetCount = count;
-        m_TargetDestroyed = 0;
-        m_NonTargetDestroyed = 0;
+        score = score + points;
+        scoreText.text = score.ToString();
+        CheckHighScore();
     }
 
-    public void TargetDestroyed(int score)
+    public void CheckHighScore()
     {
-        m_TargetDestroyed += 1;;
+        if (score > PlayerPrefs.GetInt("HighScore", 0))
+        {
+            PlayerPrefs.SetInt("HighScore", score);
+        }
     }
-    public void NonTargetDestroyed(int score)
+
+    public void UpdateHighScore()
     {
-        m_NonTargetDestroyed += 1;
+        FinalScoreUI.Instance.HighScore.text = ;
     }
 }

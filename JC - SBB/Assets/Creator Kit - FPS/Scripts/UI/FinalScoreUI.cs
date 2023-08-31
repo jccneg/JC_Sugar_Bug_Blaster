@@ -7,9 +7,9 @@ public class FinalScoreUI : MonoBehaviour
 {
     public static FinalScoreUI Instance { get; private set; }
     
-    public Text TargetDestroyed;
-    public Text NonTargetDestroyed;
     public Text FinalScore;
+    public Text HighScore;
+    public GameManager Score;
     
     void Awake()
     {
@@ -20,13 +20,7 @@ public class FinalScoreUI : MonoBehaviour
     public void Display()
     {
         gameObject.SetActive(true);
-        GameManager.Instance.DisplayCursor(true);
-        int targetDestroyed = GameManager.Instance.DestroyedTarget;
-        int totalTarget = GameManager.Instance.TargetCount;
-
-        TargetDestroyed.text = targetDestroyed + "/" + totalTarget;
-
-        FinalScore.text = Score.Instance.score.ToString();
-
+        FinalScore.text = Score.scoreText.text;
+        HighScore.text = 
     }
 }

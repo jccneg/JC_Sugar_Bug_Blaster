@@ -27,7 +27,7 @@ public class Explode : MonoBehaviour
             Destroy(gameObject);
             isDestroyed = false;
             GameObject gameManager = GameObject.Find("GameManager");
-            gameManager.GetComponent<Score>().AddScore((int)pointsWorth);
+            gameManager.GetComponent<GameManager>().AddScore((int)pointsWorth);
         }
     }
 }
