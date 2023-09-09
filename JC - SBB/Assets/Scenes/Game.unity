@@ -232,7 +232,7 @@ PrefabInstance:
     - target: {fileID: 111679628367434699, guid: 42a0ddb40af1b4a4bab43ed3db529ef5,
         type: 3}
       propertyPath: m_Text
-      value: 30
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 111679628367434699, guid: 42a0ddb40af1b4a4bab43ed3db529ef5,
         type: 3}
@@ -821,7 +821,6 @@ GameObject:
   - component: {fileID: 1799427188}
   - component: {fileID: 1799427187}
   - component: {fileID: 1799427189}
-  - component: {fileID: 1799427190}
   - component: {fileID: 1799427191}
   m_Layer: 0
   m_Name: GameManager
@@ -851,11 +850,12 @@ MonoBehaviour:
   zPos: 0
   enemyCount: 0
   Pause: {fileID: 864414075}
+  highScoreText: {fileID: 1811057101}
   score: 0
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 75785466}
   timer: {fileID: 1914652134}
   startCountdown: {fileID: 1569413335}
-  totalTimer: 30
+  totalTimer: 15
   totalStartCountdown: 3
 --- !u!4 &1799427188
 Transform:
@@ -884,20 +884,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f1f79933c495d346bc351e77dda29ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1799427190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799427186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d37e7986f3534ea4faf8ce8efd741ab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 0
-  scoreText: {fileID: 75785466}
 --- !u!114 &1799427191
 MonoBehaviour:
   m_ObjectHideFlags: 0

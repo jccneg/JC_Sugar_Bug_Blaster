@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public int zPos;
     public int enemyCount;
     public GameObject Pause;
+    private int highScore = 0;
+    public Text highScoreText;
 
     [Header("Default Score")]
     public int score = 0;
@@ -43,6 +45,9 @@ public class GameManager : MonoBehaviour
         StartCoroutine(After(EnemyCountCheck(), 3f));
         m_IsPaused = false;
         scoreText.text = score.ToString();
+        highScore = PlayerPrefs.GetInt("HighScore");
+        highScoreText.text = highScore.ToString();
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -126,14 +131,11 @@ public class GameManager : MonoBehaviour
 
     public void CheckHighScore()
     {
-        if (score > PlayerPrefs.GetInt("HighScore", 0))
+        if (score > highScore)
         {
-            PlayerPrefs.SetInt("HighScore", score);
+            highScore = score;
+            PlayerPrefs.SetInt("HighScore", highScore);
+            highScoreText.text = highScore.ToString();
         }
-    }
-
-    public void UpdateHighScore()
-    {
-        FinalScoreUI.Instance.HighScore.text = ;
     }
 }

@@ -20,7 +20,10 @@ public class FinalScoreUI : MonoBehaviour
     public void Display()
     {
         gameObject.SetActive(true);
+        GameSystem.Instance.StopTimer();
+        GameManager.Instance.DisplayCursor(true);
+        Time.timeScale = 0;
+        CameraMove.Instance.SetPositionFixed(true);
         FinalScore.text = Score.scoreText.text;
-        HighScore.text = 
     }
 }

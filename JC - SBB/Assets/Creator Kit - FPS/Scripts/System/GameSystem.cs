@@ -98,9 +98,9 @@ public class GameSystem : MonoBehaviour
 
     public void FinishRun()
     {
-        BGMPlayer.clip = EndGameSound;
-        BGMPlayer.loop = false;
-        BGMPlayer.Play();
+        //BGMPlayer.clip = EndGameSound;
+        //BGMPlayer.loop = false;
+        //BGMPlayer.Play();
         
         GameManager.Instance.CanPause = false;
         FinalScoreUI.Instance.Display();
@@ -142,11 +142,11 @@ public class GameSystem : MonoBehaviour
 
     void Update()
     {
-        if (m_TimerRunning)
+        //if (m_Running)
         {
-            m_Timer += Time.deltaTime;
+            //m_Timer += Time.deltaTime;
             
-            GameSystemInfo.Instance.UpdateTimer(m_Timer);
+            //GameSystemInfo.Instance.UpdateTimer(m_Timer);
         }        
     }
 
