@@ -12,7 +12,7 @@ public class RandomMovement : MonoBehaviour
     float force = 10f;
 
     [SerializeField]
-    private Transform target;
+    public Transform target;
 
     [Header("Audio")]
     public AudioSource IdleSource;
