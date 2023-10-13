@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject Pause;
     private int highScore = 0;
     public Text highScoreText;
+    public Text dynamicHighScoreText;
 
     [Header("Default Score")]
     public int score = 0;
@@ -47,6 +48,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = score.ToString();
         highScore = PlayerPrefs.GetInt("HighScore");
         highScoreText.text = highScore.ToString();
+        dynamicHighScoreText.text = highScore.ToString();
         Time.timeScale = 1;
     }
 
@@ -136,6 +138,7 @@ public class GameManager : MonoBehaviour
             highScore = score;
             PlayerPrefs.SetInt("HighScore", highScore);
             highScoreText.text = highScore.ToString();
+            dynamicHighScoreText.text = highScore.ToString();
         }
     }
 }
