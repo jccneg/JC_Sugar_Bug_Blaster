@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator EnemyCountCheck()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.5f);
         if(enemyCount <= 18)
         {
             SpawnEnemies();
