@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
 
     public bool CanPause { get; set; } = true;
+    public bool EndLevel;
 
     bool m_IsPaused = false;
 
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour
         highScoreText.text = highScore.ToString();
         dynamicHighScoreText.text = highScore.ToString();
         Time.timeScale = 1;
+        EndLevel = false;
     }
 
     // Update is called once per frame
@@ -71,8 +73,11 @@ public class GameManager : MonoBehaviour
 
         if (totalTimer <= 0)
         {
-            Time.timeScale = 0;
-            GameSystem.Instance.FinishRun();
+            //Time.timeScale = 0;
+            timer.text = "";
+            CanPause = false;
+            EndLevel = true;
+            //FinalScoreUI.Instance.Display();
         }
 
         if (Input.GetKey(KeyCode.Escape))
