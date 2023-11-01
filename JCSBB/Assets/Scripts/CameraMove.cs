@@ -22,6 +22,7 @@ public class CameraMove : MonoBehaviour
 
     private bool _isPositionFixed = false;
     private Vector3 _fixedPosition;
+    FadeInOut fade;
 
     private void Awake()
     {
@@ -33,6 +34,7 @@ public class CameraMove : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        fade = FindObjectOfType<FadeInOut>();
     }
 
     // Update is called once per frame
@@ -63,6 +65,7 @@ public class CameraMove : MonoBehaviour
         {
             if (!target)
                 return;
+            StartCoroutine(_ChangeScene());
             //Interpolate Position
             transform.position = Vector3.SmoothDamp(transform.position, target.position, ref refPos, movementTime);
             //Interpolate Rotation
@@ -76,8 +79,10 @@ public class CameraMove : MonoBehaviour
         _fixedPosition = transform.position;
     }
 
-    void OnCollisionEnter(Collision collision)
+    public IEnumerator _ChangeScene()
     {
+        fade.FadeIn();
+        yield return new WaitForSeconds(3);
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         SceneManager.LoadScene(nextSceneIndex);
     }

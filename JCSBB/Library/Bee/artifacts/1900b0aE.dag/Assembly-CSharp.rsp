@@ -420,6 +420,8 @@
 "Assets/Creator Kit - FPS/Scripts/UI/WeaponInfoUI.cs"
 "Assets/Scripts/CameraMove.cs"
 "Assets/Scripts/Explode.cs"
+"Assets/Scripts/FadeControl.cs"
+"Assets/Scripts/FadeInOut.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/Instructions.cs"
 "Assets/Scripts/RandomMovement.cs"
