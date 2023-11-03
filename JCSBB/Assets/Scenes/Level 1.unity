@@ -232,7 +232,7 @@ PrefabInstance:
     - target: {fileID: 111679628367434699, guid: 42a0ddb40af1b4a4bab43ed3db529ef5,
         type: 3}
       propertyPath: m_Text
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 111679628367434699, guid: 42a0ddb40af1b4a4bab43ed3db529ef5,
         type: 3}
@@ -1493,6 +1493,7 @@ GameObject:
   - component: {fileID: 1799427189}
   - component: {fileID: 1799427191}
   - component: {fileID: 1799427192}
+  - component: {fileID: 1799427193}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1525,10 +1526,11 @@ MonoBehaviour:
   dynamicHighScoreText: {fileID: 2129322676}
   score: 0
   scoreText: {fileID: 75785466}
+  scoreSO: {fileID: 11400000, guid: e295c80764f4aac4c807f9139be75d95, type: 2}
   EndLevel: 0
   timer: {fileID: 1914652134}
   startCountdown: {fileID: 1569413335}
-  totalTimer: 5
+  totalTimer: 30
   totalStartCountdown: 3
 --- !u!4 &1799427188
 Transform:
@@ -1587,6 +1589,19 @@ MonoBehaviour:
   fadein: 0
   fadeout: 0
   TimeToFade: 0.5
+--- !u!114 &1799427193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799427186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d346a203f17b1747aebf3462ae757f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreSO: {fileID: 11400000, guid: e295c80764f4aac4c807f9139be75d95, type: 2}
 --- !u!114 &1811057101 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1434748007200134187, guid: 42a0ddb40af1b4a4bab43ed3db529ef5,

@@ -232,7 +232,7 @@ PrefabInstance:
     - target: {fileID: 111679628367434699, guid: 42a0ddb40af1b4a4bab43ed3db529ef5,
         type: 3}
       propertyPath: m_Text
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 111679628367434699, guid: 42a0ddb40af1b4a4bab43ed3db529ef5,
         type: 3}
@@ -354,6 +354,12 @@ PrefabInstance:
       propertyPath: Score
       value: 
       objectReference: {fileID: 1799427187}
+    - target: {fileID: 1648332810518289509, guid: 42a0ddb40af1b4a4bab43ed3db529ef5,
+        type: 3}
+      propertyPath: scoreSO
+      value: 
+      objectReference: {fileID: 11400000, guid: e295c80764f4aac4c807f9139be75d95,
+        type: 2}
     - target: {fileID: 1648332810518289509, guid: 42a0ddb40af1b4a4bab43ed3db529ef5,
         type: 3}
       propertyPath: HighScore
@@ -1605,10 +1611,11 @@ MonoBehaviour:
   dynamicHighScoreText: {fileID: 2129322676}
   score: 0
   scoreText: {fileID: 75785466}
+  scoreSO: {fileID: 11400000, guid: e295c80764f4aac4c807f9139be75d95, type: 2}
   EndLevel: 0
   timer: {fileID: 1914652134}
   startCountdown: {fileID: 1569413335}
-  totalTimer: 5
+  totalTimer: 30
   totalStartCountdown: 3
 --- !u!4 &1799427188
 Transform:
@@ -1658,15 +1665,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799427186}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e154305ca4a2f046bf6055870a1b1ef, type: 3}
+  m_Script: {fileID: 11500000, guid: ba45c51450cf7004aa1af1bd52e73a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasgroup: {fileID: 1100492914}
-  fadein: 0
-  fadeout: 0
-  TimeToFade: 0.5
 --- !u!114 &1811057101 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1434748007200134187, guid: 42a0ddb40af1b4a4bab43ed3db529ef5,

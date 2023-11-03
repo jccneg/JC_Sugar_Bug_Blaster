@@ -468,6 +468,7 @@ UnityEngine.Object::FindObjectFromInstanceID
 UnityEngine.Object::Internal_CloneSingle
 UnityEngine.Object::Internal_CloneSingleWithParent
 UnityEngine.Object::Internal_InstantiateSingle_Injected
+UnityEngine.Object::FindObjectsOfType
 UnityEngine.ObjectGUIState::Internal_Create
 UnityEngine.ObjectGUIState::Internal_Destroy
 UnityEngine.ParticleSystem::EmitOld_Internal
@@ -502,6 +503,7 @@ UnityEngine.Quaternion::Internal_FromEulerRad_Injected
 UnityEngine.Quaternion::Internal_ToEulerRad_Injected
 UnityEngine.Quaternion::Inverse_Injected
 UnityEngine.Quaternion::LookRotation_Injected
+UnityEngine.Quaternion::Slerp_Injected
 UnityEngine.Random::RandomRangeInt
 UnityEngine.Random::Range
 UnityEngine.Random::get_value
@@ -624,8 +626,8 @@ UnityEngine.ScalableBufferManager::get_heightScaleFactor
 UnityEngine.ScalableBufferManager::get_widthScaleFactor
 UnityEngine.SceneManagement.Scene::GetIsLoadedInternal
 UnityEngine.SceneManagement.Scene::IsValidInternal
+UnityEngine.SceneManagement.Scene::GetBuildIndexInternal
 UnityEngine.SceneManagement.Scene::GetRootCountInternal
-UnityEngine.SceneManagement.Scene::GetNameInternal
 UnityEngine.SceneManagement.Scene::GetRootGameObjectsInternal
 UnityEngine.SceneManagement.SceneManager::get_sceneCount
 UnityEngine.SceneManagement.SceneManager::GetActiveScene_Injected

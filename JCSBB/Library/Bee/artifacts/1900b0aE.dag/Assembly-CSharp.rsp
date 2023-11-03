@@ -419,6 +419,7 @@
 "Assets/Creator Kit - FPS/Scripts/UI/RestartLevel.cs"
 "Assets/Creator Kit - FPS/Scripts/UI/WeaponInfoUI.cs"
 "Assets/Scripts/CameraMove.cs"
+"Assets/Scripts/EndGame.cs"
 "Assets/Scripts/Explode.cs"
 "Assets/Scripts/FadeControl.cs"
 "Assets/Scripts/FadeInOut.cs"
@@ -426,7 +427,9 @@
 "Assets/Scripts/Instructions.cs"
 "Assets/Scripts/RandomMovement.cs"
 "Assets/Scripts/Render.cs"
+"Assets/Scripts/ResetValue.cs"
 "Assets/Scripts/ShootScript.cs"
+"Assets/Scripts/SoData/FloatSO.cs"
 "Assets/Scripts/StartGame.cs"
 -langversion:9.0
 

@@ -232,7 +232,7 @@ PrefabInstance:
     - target: {fileID: 111679628367434699, guid: 42a0ddb40af1b4a4bab43ed3db529ef5,
         type: 3}
       propertyPath: m_Text
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 111679628367434699, guid: 42a0ddb40af1b4a4bab43ed3db529ef5,
         type: 3}
@@ -354,6 +354,12 @@ PrefabInstance:
       propertyPath: Score
       value: 
       objectReference: {fileID: 1799427187}
+    - target: {fileID: 1648332810518289509, guid: 42a0ddb40af1b4a4bab43ed3db529ef5,
+        type: 3}
+      propertyPath: scoreSO
+      value: 
+      objectReference: {fileID: 11400000, guid: e295c80764f4aac4c807f9139be75d95,
+        type: 2}
     - target: {fileID: 1648332810518289509, guid: 42a0ddb40af1b4a4bab43ed3db529ef5,
         type: 3}
       propertyPath: HighScore
@@ -1472,17 +1478,17 @@ PrefabInstance:
     - target: {fileID: 3916511574846431727, guid: 21a463888965eb14ea0abb606bdbca2b,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 3916511574846431727, guid: 21a463888965eb14ea0abb606bdbca2b,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 3916511574846431727, guid: 21a463888965eb14ea0abb606bdbca2b,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 3916511574846431727, guid: 21a463888965eb14ea0abb606bdbca2b,
         type: 3}
@@ -1581,10 +1587,11 @@ MonoBehaviour:
   dynamicHighScoreText: {fileID: 2129322676}
   score: 0
   scoreText: {fileID: 75785466}
+  scoreSO: {fileID: 11400000, guid: e295c80764f4aac4c807f9139be75d95, type: 2}
   EndLevel: 0
   timer: {fileID: 1914652134}
   startCountdown: {fileID: 1569413335}
-  totalTimer: 5
+  totalTimer: 15
   totalStartCountdown: 3
 --- !u!4 &1799427188
 Transform:

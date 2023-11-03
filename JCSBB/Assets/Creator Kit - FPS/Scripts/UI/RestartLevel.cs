@@ -9,6 +9,6 @@ public class RestartLevel : MonoBehaviour
         GameSystem.Instance.StartTimer();
         GameManager.Instance.DisplayCursor(false);
         Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(1);
     }
 }

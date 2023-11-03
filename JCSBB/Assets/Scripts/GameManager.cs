@@ -19,7 +19,10 @@ public class GameManager : MonoBehaviour
     [Header("Default Score")]
     public int score = 0;
     [Header("Text Object for Displaying Score")]
+    [SerializeField]
     public Text scoreText;
+    [SerializeField]
+    private FloatSO scoreSO;
 
     public bool CanPause { get; set; } = true;
     public bool EndLevel;
@@ -46,7 +49,7 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(After(EnemyCountCheck(), 3f));
         m_IsPaused = false;
-        scoreText.text = score.ToString();
+        scoreText.text = scoreSO.Value + "";
         highScore = PlayerPrefs.GetInt("HighScore");
         highScoreText.text = highScore.ToString();
         dynamicHighScoreText.text = highScore.ToString();
@@ -131,19 +134,19 @@ public class GameManager : MonoBehaviour
 
     public void AddScore(int points)
     {
-        score = score + points;
-        scoreText.text = score.ToString();
+        scoreSO.Value += points;
+        scoreText.text = scoreSO.Value + "";
         CheckHighScore();
     }
 
     public void CheckHighScore()
     {
-        if (score > highScore)
+        if (scoreSO.Value > highScore)
         {
-            highScore = score;
+            highScore = (int)scoreSO.Value;
             PlayerPrefs.SetInt("HighScore", highScore);
-            highScoreText.text = highScore.ToString();
-            dynamicHighScoreText.text = highScore.ToString();
+            highScoreText.text = scoreSO.Value + "";
+            dynamicHighScoreText.text = scoreSO.Value + "";
         }
     }
 }

@@ -10,6 +10,8 @@ public class FinalScoreUI : MonoBehaviour
     public Text FinalScore;
     public Text HighScore;
     public GameManager Score;
+    [SerializeField]
+    private FloatSO scoreSO;
     
     void Awake()
     {
@@ -24,6 +26,6 @@ public class FinalScoreUI : MonoBehaviour
         GameManager.Instance.DisplayCursor(true);
         Time.timeScale = 0;
         CameraMove.Instance.SetPositionFixed(true);
-        FinalScore.text = Score.scoreText.text;
+        FinalScore.text = scoreSO.Value + "";
     }
 }
